@@ -1,0 +1,24 @@
+{
+  "title": "Helty VMC",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Helty VMC",
+        "description": "Set up your Helty VMC device. Make sure the IP address is static.",
+        "data": {
+          "host": "IP Address",
+          "port": "Port (default: 5001)",
+          "name": "Device Name",
+          "scan_interval": "Update Interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the VMC. Check the IP address and ensure the device is online.",
+      "unknown": "Unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This device is already configured."
+    }
+  }
+}

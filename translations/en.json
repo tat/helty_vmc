@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Helty VMC",
+        "description": "Set up your Helty VMC device. Make sure the IP address is static.",
+        "data": {
+          "host": "IP Address",
+          "port": "Port (default: 5001)",
+          "name": "Device Name",
+          "scan_interval": "Update Interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the VMC. Check the IP address and ensure the device is online.",
+      "unknown": "Unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This device is already configured."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature_internal": {
+        "name": "Internal Temperature"
+      },
+      "temperature_external": {
+        "name": "External Temperature"
+      },
+      "humidity_internal": {
+        "name": "Internal Humidity"
+      },
+      "co2": {
+        "name": "CO2"
+      },
+      "voc": {
+        "name": "VOC"
+      },
+      "speed_mode": {
+        "name": "Speed Mode"
+      },
+      "speed": {
+        "name": "Speed"
+      },
+      "airflow": {
+        "name": "Airflow Rate"
+      }
+    },
+    "switch": {
+      "led_panel": {
+        "name": "LED Panel"
+      },
+      "sensors": {
+        "name": "Sensors"
+      }
+    },
+    "button": {
+      "speed_0": {
+        "name": "Speed 0 (Off)"
+      },
+      "speed_1": {
+        "name": "Speed 1"
+      },
+      "speed_2": {
+        "name": "Speed 2"
+      },
+      "speed_3": {
+        "name": "Speed 3"
+      },
+      "speed_4": {
+        "name": "Speed 4"
+      },
+      "boost": {
+        "name": "Boost"
+      },
+      "night_mode": {
+        "name": "Night Mode"
+      },
+      "free_cooling": {
+        "name": "Free Cooling"
+      },
+      "led_on": {
+        "name": "LED On"
+      },
+      "led_off": {
+        "name": "LED Off"
+      },
+      "reset_filter": {
+        "name": "Reset Filter"
+      }
+    },
+    "binary_sensor": {
+      "filter_warning": {
+        "name": "Filter Warning"
+      },
+      "online": {
+        "name": "Online"
+      }
+    }
+  }
+}

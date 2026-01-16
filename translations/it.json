@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configura Helty VMC",
+        "description": "Configura il tuo dispositivo Helty VMC. Assicurati che l'indirizzo IP sia statico.",
+        "data": {
+          "host": "Indirizzo IP",
+          "port": "Porta (default: 5001)",
+          "name": "Nome Dispositivo",
+          "scan_interval": "Intervallo Aggiornamento (secondi)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossibile connettersi alla VMC. Verifica l'indirizzo IP e che il dispositivo sia online.",
+      "unknown": "Si è verificato un errore imprevisto."
+    },
+    "abort": {
+      "already_configured": "Questo dispositivo è già configurato."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature_internal": {
+        "name": "Temperatura Interna"
+      },
+      "temperature_external": {
+        "name": "Temperatura Esterna"
+      },
+      "humidity_internal": {
+        "name": "Umidità Interna"
+      },
+      "co2": {
+        "name": "CO2"
+      },
+      "voc": {
+        "name": "COV"
+      },
+      "speed_mode": {
+        "name": "Modalità Velocità"
+      },
+      "speed": {
+        "name": "Velocità"
+      },
+      "airflow": {
+        "name": "Portata d'Aria"
+      }
+    },
+    "switch": {
+      "led_panel": {
+        "name": "Pannello LED"
+      },
+      "sensors": {
+        "name": "Sensori"
+      }
+    },
+    "button": {
+      "speed_0": {
+        "name": "Velocità 0 (Spento)"
+      },
+      "speed_1": {
+        "name": "Velocità 1"
+      },
+      "speed_2": {
+        "name": "Velocità 2"
+      },
+      "speed_3": {
+        "name": "Velocità 3"
+      },
+      "speed_4": {
+        "name": "Velocità 4"
+      },
+      "boost": {
+        "name": "Iperventilazione"
+      },
+      "night_mode": {
+        "name": "Modalità Notturna"
+      },
+      "free_cooling": {
+        "name": "Free Cooling"
+      },
+      "led_on": {
+        "name": "LED Acceso"
+      },
+      "led_off": {
+        "name": "LED Spento"
+      },
+      "reset_filter": {
+        "name": "Reset Filtro"
+      }
+    },
+    "binary_sensor": {
+      "filter_warning": {
+        "name": "Avviso Filtro"
+      },
+      "online": {
+        "name": "Online"
+      }
+    }
+  }
+}

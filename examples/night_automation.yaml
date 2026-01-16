@@ -1,0 +1,18 @@
+# Helty VMC Night Automation
+# Add this to your automations.yaml or create via UI
+
+automation:
+  - alias: "VMC Night Mode at 11pm"
+    description: "Set fan to speed 1 and turn off LED panel at 11pm"
+    trigger:
+      - platform: time
+        at: "23:00:00"
+    action:
+      - service: fan.set_preset_mode
+        target:
+          entity_id: fan.helty_vmc
+        data:
+          preset_mode: speed_1
+      - service: switch.turn_off
+        target:
+          entity_id: switch.helty_vmc_led_panel
