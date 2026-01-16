@@ -2,6 +2,9 @@
 
 A clean, modern Home Assistant custom integration for Helty VMC (Flow Plus/Elite) devices.
 
+![State View](images/state.png)
+![Control Buttons](images/buttons.png)
+
 ## Credits
 
 Protocol reverse-engineered from the [VMC-HELTY-FLOW](https://github.com/DanRobo76/VMC-HELTY-FLOW) project by Ing. Danilo Robotti.
