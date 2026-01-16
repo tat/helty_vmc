@@ -83,6 +83,8 @@ Protocol reverse-engineered from the [VMC-HELTY-FLOW](https://github.com/DanRobo
 
 ## Usage
 
+> **Note**: See the [`examples/`](examples/) folder for complete automation, script, and Lovelace card examples.
+
 ### Fan Control
 
 The VMC appears as a fan entity with these preset modes:
@@ -192,14 +194,20 @@ title: Helty VMC
 entities:
   - entity: fan.helty_vmc
   - entity: sensor.helty_vmc_speed_mode
+  - entity: sensor.helty_vmc_speed
   - entity: sensor.helty_vmc_airflow_rate
+  - type: divider
   - entity: sensor.helty_vmc_internal_temperature
   - entity: sensor.helty_vmc_external_temperature
   - entity: sensor.helty_vmc_internal_humidity
   - entity: sensor.helty_vmc_co2
   - entity: sensor.helty_vmc_voc
+  - type: divider
   - entity: switch.helty_vmc_led_panel
   - entity: switch.helty_vmc_sensors
+  - entity: binary_sensor.helty_vmc_filter_warning
+  - entity: binary_sensor.helty_vmc_online
+  - type: divider
   - entity: button.helty_vmc_reset_filter
 ```
 

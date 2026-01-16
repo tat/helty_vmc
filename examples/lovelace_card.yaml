@@ -1,0 +1,115 @@
+# Complete Helty VMC Lovelace Card Example
+# Add this to your dashboard via the UI or YAML mode
+
+type: entities
+title: Helty VMC Control
+entities:
+  # Main fan control
+  - entity: fan.helty_vmc
+  
+  # Speed indicators
+  - entity: sensor.helty_vmc_speed_mode
+  - entity: sensor.helty_vmc_speed
+  - entity: sensor.helty_vmc_airflow_rate
+  
+  # Divider
+  - type: divider
+  
+  # Environmental sensors
+  - entity: sensor.helty_vmc_internal_temperature
+  - entity: sensor.helty_vmc_external_temperature
+  - entity: sensor.helty_vmc_internal_humidity
+  - entity: sensor.helty_vmc_co2
+  - entity: sensor.helty_vmc_voc
+  
+  # Divider
+  - type: divider
+  
+  # Switches and status
+  - entity: switch.helty_vmc_led_panel
+  - entity: switch.helty_vmc_sensors
+  - entity: binary_sensor.helty_vmc_filter_warning
+  - entity: binary_sensor.helty_vmc_online
+  
+  # Divider
+  - type: divider
+  
+  # Maintenance
+  - entity: button.helty_vmc_reset_filter
+
+---
+
+# Alternative: Grid Card with Speed Buttons
+type: vertical-stack
+cards:
+  # Status card
+  - type: entities
+    title: VMC Status
+    entities:
+      - entity: fan.helty_vmc
+      - entity: sensor.helty_vmc_speed_mode
+      - entity: sensor.helty_vmc_airflow_rate
+      - entity: binary_sensor.helty_vmc_filter_warning
+      - entity: binary_sensor.helty_vmc_online
+  
+  # Speed control buttons
+  - type: grid
+    title: Speed Control
+    columns: 4
+    square: false
+    cards:
+      - type: button
+        entity: button.helty_vmc_speed_1
+        name: Speed 1
+        icon: mdi:fan-speed-1
+      - type: button
+        entity: button.helty_vmc_speed_2
+        name: Speed 2
+        icon: mdi:fan-speed-2
+      - type: button
+        entity: button.helty_vmc_speed_3
+        name: Speed 3
+        icon: mdi:fan-speed-3
+      - type: button
+        entity: button.helty_vmc_speed_4
+        name: Speed 4
+        icon: mdi:fan-plus
+  
+  # Mode buttons
+  - type: grid
+    title: Modes
+    columns: 3
+    square: false
+    cards:
+      - type: button
+        entity: button.helty_vmc_night_mode
+        name: Night
+        icon: mdi:weather-night
+      - type: button
+        entity: button.helty_vmc_boost
+        name: Boost
+        icon: mdi:fan-chevron-up
+      - type: button
+        entity: button.helty_vmc_free_cooling
+        name: Free Cool
+        icon: mdi:snowflake
+  
+  # Sensors card
+  - type: entities
+    title: Sensors
+    entities:
+      - entity: sensor.helty_vmc_internal_temperature
+      - entity: sensor.helty_vmc_external_temperature
+      - entity: sensor.helty_vmc_internal_humidity
+      - entity: sensor.helty_vmc_co2
+      - entity: sensor.helty_vmc_voc
+  
+  # Settings
+  - type: entities
+    title: Settings
+    entities:
+      - entity: switch.helty_vmc_led_panel
+      - entity: switch.helty_vmc_sensors
+      - entity: button.helty_vmc_led_on
+      - entity: button.helty_vmc_led_off
+      - entity: button.helty_vmc_reset_filter

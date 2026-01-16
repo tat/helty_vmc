@@ -3,7 +3,7 @@
 
 automation:
   - alias: "VMC Night Mode at 11pm"
-    description: "Set fan to speed 1 and turn off LED panel at 11pm"
+    description: "Set fan to night mode and turn off LED panel at 11pm"
     trigger:
       - platform: time
         at: "23:00:00"
@@ -12,7 +12,67 @@ automation:
         target:
           entity_id: fan.helty_vmc
         data:
-          preset_mode: speed_1
+          preset_mode: night
       - service: switch.turn_off
         target:
           entity_id: switch.helty_vmc_led_panel
+
+  - alias: "VMC Day Mode at 7am"
+    description: "Set fan to speed 2 and turn on LED panel at 7am"
+    trigger:
+      - platform: time
+        at: "07:00:00"
+    action:
+      - service: fan.set_preset_mode
+        target:
+          entity_id: fan.helty_vmc
+        data:
+          preset_mode: speed_2
+      - service: switch.turn_on
+        target:
+          entity_id: switch.helty_vmc_led_panel
+
+  # Using buttons instead of fan preset
+  - alias: "VMC Night Mode Button Example"
+    description: "Use button entity for night mode at 11pm"
+    trigger:
+      - platform: time
+        at: "23:00:00"
+    action:
+      - service: button.press
+        target:
+          entity_id: button.helty_vmc_night_mode
+      - service: button.press
+        target:
+          entity_id: button.helty_vmc_led_off
+
+  # Check if NOT in night mode using template
+  - alias: "VMC Boost when CO2 High (not in night mode)"
+    description: "Only boost if not already in night mode"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.helty_vmc_co2
+        above: 1200
+    condition:
+      - condition: template
+        value_template: "{{ states('sensor.helty_vmc_speed_mode') != 'night' }}"
+    action:
+      - service: fan.set_preset_mode
+        target:
+          entity_id: fan.helty_vmc
+        data:
+          preset_mode: boost
+
+  # Filter warning notification
+  - alias: "VMC Filter Warning Notification"
+    description: "Send notification when filter needs replacement"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.helty_vmc_filter_warning
+        to: "on"
+    action:
+      - service: notify.notify
+        data:
+          title: "VMC Filter Warning"
+          message: "Helty VMC filter needs cleaning or replacement"
+
