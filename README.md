@@ -2,6 +2,10 @@
 
 A clean, modern Home Assistant custom integration for Helty VMC (Flow Plus/Elite) devices.
 
+## Credits
+
+Protocol reverse-engineered from the [VMC-HELTY-FLOW](https://github.com/DanRobo76/VMC-HELTY-FLOW) project by Ing. Danilo Robotti.
+
 ## Features
 
 - **Fan Entity**: Control fan speed with preset modes (Speed 1-4, Boost, Night, Free Cooling)
@@ -252,6 +256,3 @@ The filter reset command sends the reset signal to the VMC. Verify by checking t
 
 MIT License
 
-## Credits
-
-Protocol reverse-engineered from the [VMC-HELTY-FLOW](https://github.com/DanRobo76/VMC-HELTY-FLOW) project by Ing. Danilo Robotti.
