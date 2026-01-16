@@ -3,7 +3,7 @@
   "name": "Helty VMC",
   "codeowners": [],
   "config_flow": true,
-  "documentation": "https://github.com/your-repo/helty-vmc",
+  "documentation": "https://github.com/tat/helty_vmc",
   "iot_class": "local_polling",
   "version": "1.0.0",
   "requirements": [],
